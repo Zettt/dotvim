@@ -3,6 +3,18 @@ if has("gui_macvim")
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert
 
+  " Use my preferred font
+  set guifont=Menlo:h11
+
+  " Status line like a boss! Look in .vimrc for more info
+  set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+  " tell VIM to always put a status line in, even if there is only one window
+  set laststatus=2  
+
+  " Highlight current line
+  set cursorline
+  nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
   " Command-T for CommandT
   macmenu &File.New\ Tab key=<D-T>
   map <D-t> :CommandT<CR>
@@ -21,6 +33,8 @@ if has("gui_macvim")
   map <D-/> <plug>NERDCommenterToggle<CR>
 
   " Command-][ to increase/decrease indentation
+  nmap <D-[> <<
+  nmap <D-]> >>
   vmap <D-]> >gv
   vmap <D-[> <gv
 
@@ -200,7 +214,3 @@ call s:DefineCommand("rm", "Remove")
 call s:DefineCommand("e", "Edit")
 call s:DefineCommand("mkdir", "Mkdir")
 
-" Include user's local vim config
-if filereadable(expand("~/.gvimrc.local"))
-  source ~/.gvimrc.local
-endif
