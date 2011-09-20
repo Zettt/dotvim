@@ -30,8 +30,19 @@ set wildignore+=*.o,*.obj,.git,*.rbc
 " ------------------------------------------------
 " Status bar
 " http://derekwyatt.org/vim/the-vimrc-file/my-vimrc-file 
-set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
-set laststatus=2
+" set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+" set laststatus=2
+
+if has('statusline')
+    set statusline=%<%f\
+    set statusline+=%w%h%m%r
+    set statusline+=%{fugitive#statusline()}
+    set statusline+=\ [%{&ff}/%Y]
+    set statusline+=\ [%{getcwd()}]
+    set statusline+=%=%-14.(Line:\ %l\ of\ %L\ [%p%%]\ -\ Col:\ %c%V%)
+endif
+
+
 " Disable all blinking:
 set guicursor+=a:blinkon0
 " Default color scheme
@@ -42,22 +53,15 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set list listchars=tab:▸\ ,trail:¬
+set showbreak=⌎
+
+" Use par for text formatting
+set formatprg=par
 
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
-
-" ------------------------------------------------
-" NERDTree stuff -
-" ------------------------------------------------
-" NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$']
-map <Leader>n :NERDTreeToggle<CR>
-" Shortcut for NERDTreeToggle
-nmap ,nt :NERDTreeToggle<cr>
-" Show hidden files in NERDTree
-let NERDTreeShowHidden=1 
 
 " ------------------------------------------------
 " Command-T configuration
@@ -97,22 +101,40 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 " Better scrolling for soft wrapped text
-map j gj
-map k gk
-map <Up> gk
-map <Down> gj
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g^
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g^
+
+" Copy all text of current line, paste below and replace everything with =
+nnoremap <leader>= yypVr=
+
+" TextMate bolds and italics
+let s:surround_{char2nr("b")} = "**\r**"
+let s:surround_{char2nr("i")} = "*\r*"
+" vmap <D-b> sb<cr>
 
 " ------------------------------------------------
 " Shortcuts
 " ------------------------------------------------
-nmap ,mm :% !~/Library/Application\ Support/MultiMarkdown/bin/MultiMarkdown.pl<cr>
+nmap ,mm :% !/usr/local/bin/multimarkdown<cr>
 
 " Quickly edit vimcr files
 nmap ,evr :tabedit ~/.vimrc<cr>
 nmap ,egr :tabedit ~/.gvimrc<cr>
 
 " Server shortcuts
-nmap ,dreamhost :e sftp://zettt@ps34711.dreamhostps.com/<cr>
+nmap ,dream :e sftp://zettt@ps34711.dreamhostps.com/<cr>
+
+"command! Marked silent open -a "Marked.app" expand("%:p")<cr>
+command! Marked :silent open -a "Marked.app" expand("%:p")
+nmap ,marked :silent !open -a Marked.app '%:p'<cr>
 
 " ------------------------------------------------
 " Functions and autocommands
@@ -161,7 +183,7 @@ function! Stab()
   endif
   call SummarizeTabs()
 endfunction
- 
+
 function! SummarizeTabs()
   try
     echohl ModeMsg
@@ -178,17 +200,10 @@ function! SummarizeTabs()
   endtry
 endfunction
 
-
-" Align text non automatically but with more characters...until I figured out
-" how I need to modify the above lines...
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<cr>
-  vmap <Leader>a= :Tabularize /=<cr>
-  nmap <Leader>a| :Tabularize /|<cr>
-  vmap <Leader>a| :Tabularize /|<cr>
-  nmap <Leader>a: :Tabularize /:\zs<cr>
-  vmap <Leader>a: :Tabularize /:\zs<cr>
-end if
+" Causes linebreaking, rather than character breaking
+" Unfortunately turns off displaying special characters like ¬
+" at the end of lines
+command! -nargs=* Wrap set wrap linebreak nolist
 
 " make uses real tabs
 au FileType make                                     set noexpandtab
@@ -204,6 +219,9 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python  set tabstop=4 textwidth=79
 
+" Save file when Vim loses focus
+au BufLeave,FocusLost * silent! :wall
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -211,7 +229,7 @@ set backspace=indent,eol,start
 filetype plugin indent on
 
 " Automatically change current directory to that of the file in the buffer
-autocmd BufEnter * cd %:p:h 
+autocmd BufEnter * cd %:p:h
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
@@ -228,11 +246,11 @@ set directory=~/.vim/backup
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
 
-" Should I ever need to print anything again. Here are some 
+" Should I ever need to print anything again. Here are some
 " useful settings
 " set printfont=Menlo:h8:
 " set printoptions=syntax:y
-" set printoptions=header:0      
+" set printoptions=header:0
 
 " Just so that I have this nifty functionality for future references
 " Include user's local vim config
