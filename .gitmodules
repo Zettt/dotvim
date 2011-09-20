@@ -35,5 +35,5 @@
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
 [submodule "delimitMate"]
-	path = delimitMate
+	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
