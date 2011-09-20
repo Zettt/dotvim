@@ -22,9 +22,6 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "bundle/markdown-preview"]
-	path = bundle/markdown-preview
-	url = https://github.com/robgleeson/vim-markdown-preview.git
 [submodule "bundle/ZoomWin"]
 	path = bundle/ZoomWin
 	url = https://github.com/vim-scripts/ZoomWin.git
@@ -37,3 +34,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "delimitMate"]
+	path = delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
