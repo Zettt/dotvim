@@ -1,9 +1,3 @@
-[submodule "snipmate-snippets"]
-	path = snipmate-snippets
-	url = https://github.com/spf13/snipmate-snippets.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://spf13@github.com/spf13/snipmate.vim.git
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
@@ -37,3 +31,9 @@
 [submodule "delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule "taskpaper"]
+	path = bundle/taskpaper
+	url = https://github.com/davidoc/taskpaper.vim.git
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
