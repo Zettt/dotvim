@@ -24,6 +24,8 @@ set smartcase
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc
 
+" monitor realtime changes to a file
+set autoread
 
 " ------------------------------------------------
 " Visual stuff
@@ -132,9 +134,13 @@ nmap ,egr :tabedit ~/.gvimrc<cr>
 " Server shortcuts
 nmap ,dream :e sftp://zettt@ps34711.dreamhostps.com/<cr>
 
-"command! Marked silent open -a "Marked.app" expand("%:p")<cr>
-command! Marked :silent open -a "Marked.app" expand("%:p")
+command! Marked silent !open -a "Marked.app" "%:p"
 nmap ,marked :silent !open -a Marked.app '%:p'<cr>
+
+" ------------------------------------------------
+" Gundo
+" ------------------------------------------------
+nnoremap <F5> :GundoToggle<CR>
 
 " ------------------------------------------------
 " Functions and autocommands
@@ -144,6 +150,9 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal g'\"" | endif
 endif
+
+au BufRead,BufNewFile *.spmd		set filetype=spmd
+au BufRead,BufNewFile *.fountain	set filetype=spmd
 
 function s:setupWrapping()
   set wrap
