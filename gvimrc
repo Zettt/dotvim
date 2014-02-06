@@ -7,7 +7,7 @@ if has("gui_macvim")
     set fuoptions=maxhorz,maxvert
 
     " Use my preferred font
-    set guifont=Menlo:h11
+    set guifont=Menlo:h12
 
     " Highlight current line
     set cursorline
