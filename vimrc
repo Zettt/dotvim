@@ -1,18 +1,17 @@
+set nocompatible
+set nocp
+filetype off
+
 " pathogen IMPORTANT!!!
-" call pathogen#runtime_append_all_bundles()
-" call pathogen#helptags()
 execute pathogen#infect()
 
 set virtualedit=all
 set foldenable
 
-set nocompatible
-
 set number
 set ruler
 syntax on
 
-" Set encoding
 set encoding=utf-8
 
 " Searching
@@ -33,17 +32,17 @@ set autoread
 " ------------------------------------------------
 " Status bar
 " http://derekwyatt.org/vim/the-vimrc-file/my-vimrc-file 
-" set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
-" set laststatus=2
+set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+set laststatus=2
 
-if has('statusline')
-    set statusline=%<%f\
-    set statusline+=%w%h%m%r
-    set statusline+=%{fugitive#statusline()}
-    set statusline+=\ [%{&ff}/%Y]
-    set statusline+=\ [%{getcwd()}]
-    set statusline+=%=%-14.(Line:\ %l\ of\ %L\ [%p%%]\ -\ Col:\ %c%V%)
-endif
+"if has('statusline')
+    "set statusline=%<%f\
+    "set statusline+=%w%h%m%r
+    "set statusline+=%{fugitive#statusline()}
+    "set statusline+=\ [%{&ff}/%Y]
+    "set statusline+=\ [%{getcwd()}]
+    "set statusline+=%=%-14.(Line:\ %l\ of\ %L\ [%p%%]\ -\ Col:\ %c%V%)
+"endif
 
 
 " Disable all blinking:
@@ -115,6 +114,18 @@ nmap <D-k> gk
 nmap <D-4> g$
 nmap <D-6> g^
 nmap <D-0> g^
+
+"custom tab stuff
+" tab navigation like safari
+" idea adopted from: [[VimTip1221]]
+":nmap <D-[> :tabprevious<CR>
+":nmap <D-]> :tabnext<CR>
+":map  <D-[> :tabprevious<CR>
+":map  <D-]> :tabnext<CR>
+":imap <D-[> <Esc>:tabprevious<CR>i
+":imap <D-]> <Esc>:tabnext<CR>i
+:nmap <D-t> :tabnew<CR>
+:imap <D-t> <Esc>:tabnew<CR>
 
 " Copy all text of current line, paste below and replace everything with =
 nnoremap <leader>= yypVr=
