@@ -25,9 +25,9 @@
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "bundle/vim-repeat"]
-	path = bundle/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
 [submodule "bundle/UltiSnips"]
 	path = bundle/UltiSnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
