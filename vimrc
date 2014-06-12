@@ -2,6 +2,9 @@ set nocompatible
 set nocp
 filetype off
 
+let g:pathogen_disabled = []
+call add(g:pathogen_disabled, 'Command-T')
+
 " pathogen IMPORTANT!!!
 execute pathogen#infect()
 
