@@ -147,8 +147,8 @@ nmap ,mm :% !/usr/local/bin/multimarkdown<cr>
 nmap ,evr :tabedit ~/.vimrc<cr>
 nmap ,egr :tabedit ~/.gvimrc<cr>
 
-command! Marked silent !open -a "Marked.app" "%:p"
-nmap ,marked :silent !open -a Marked.app '%:p'<cr>
+command! Marked silent !open -a "Marked 2.app" "%:p"
+nmap ,marked :silent !open -a "Marked 2.app" '%:p'<cr>
 
 " ------------------------------------------------
 " Gundo
