@@ -47,7 +47,6 @@ set laststatus=2
     "set statusline+=%=%-14.(Line:\ %l\ of\ %L\ [%p%%]\ -\ Col:\ %c%V%)
 "endif
 
-
 " Disable all blinking:
 set guicursor+=a:blinkon0
 " Default color scheme
@@ -67,6 +66,9 @@ set formatprg=par
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
+
+" Folds open by default
+set foldlevelstart=20
 
 " ------------------------------------------------
 " Command-T configuration
