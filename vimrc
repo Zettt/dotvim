@@ -61,6 +61,8 @@ set shiftwidth=4
 set softtabstop=4
 set list listchars=tab:▸\ ,trail:¬
 set showbreak=⌎
+" Typewriter scrolling
+set scrolloff=999
 
 " Use par for text formatting
 set formatprg=par
