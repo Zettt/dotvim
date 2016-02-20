@@ -38,6 +38,9 @@ set autoread
 set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
 set laststatus=2
 
+highlight ColorColumn ctermbg=Magenta guibg=DeepPink4
+set colorcolumn=141
+
 "if has('statusline')
     "set statusline=%<%f\
     "set statusline+=%w%h%m%r
