@@ -34,3 +34,6 @@
 [submodule "bundle/taskpaper.vim"]
 	path = bundle/taskpaper.vim
 	url = https://Zettt@github.com/davidoc/taskpaper.vim
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
