@@ -34,9 +34,6 @@
 [submodule "bundle/vim-flavored-markdown"]
 	path = bundle/vim-flavored-markdown
 	url = https://Zettt@github.com/jtratner/vim-flavored-markdown
-[submodule "bundle/vim-markdown-folding"]
-	path = bundle/vim-markdown-folding
-	url = https://Zettt@github.com/nelstrom/vim-markdown-folding
 [submodule "bundle/taskpaper.vim"]
 	path = bundle/taskpaper.vim
 	url = https://Zettt@github.com/davidoc/taskpaper.vim
