@@ -241,7 +241,7 @@ au FileType make                                     set noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
 " md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
 
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
@@ -286,3 +286,11 @@ let macvim_hig_shift_movement = 1
 " if filereadable(expand("~/.vimrc.local"))
 "   source ~/.vimrc.local
 " endif
+
+" Vimwiki
+let g:vimwiki_list = [{'path': '$HOME/Sync/Dropbox/Notes', 'path_html': '$HOME/Sync/Dropbox/Public/kiwi', 'auto_export': 1}]
+" automatically resolve folder links as folder/index.wiki 
+let g:vimwiki_dir_link = 'index'
+" headers with different colors
+let g:vimwiki_hl_headers = 1 - highlight
+
