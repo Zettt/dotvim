@@ -287,10 +287,3 @@ let macvim_hig_shift_movement = 1
 "   source ~/.vimrc.local
 " endif
 
-" Vimwiki
-let g:vimwiki_list = [{'path': '$HOME/Sync/Dropbox/Notes', 'path_html': '$HOME/Sync/Dropbox/Public/kiwi', 'auto_export': 1}]
-" automatically resolve folder links as folder/index.wiki 
-let g:vimwiki_dir_link = 'index'
-" headers with different colors
-let g:vimwiki_hl_headers = 1 - highlight
-
