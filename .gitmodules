@@ -37,9 +37,6 @@
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = git@github.com:honza/vim-snippets.git
-[submodule "bundle/vimwiki"]
-	path = bundle/vimwiki
-	url = https://Zettt@github.com/vimwiki/vimwiki.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git@github.com:vim-syntastic/syntastic.git
