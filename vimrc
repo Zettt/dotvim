@@ -114,16 +114,22 @@ vnoremap <C-Up> :m '<-2<CR>gv=gv
 vnoremap <C-Down> :m '>+1<CR>gv=gv
 
 " Better scrolling for soft wrapped text
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-4> g$
-vmap <D-6> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk
-nmap <D-4> g$
-nmap <D-6> g^
-nmap <D-0> g^
+" vmap <D-j> gj
+" vmap <D-k> gk
+" vmap <D-4> g$
+" vmap <D-6> g^
+" vmap <D-0> g^
+" nmap <D-j> gj
+" nmap <D-k> gk
+" nmap <D-4> g$
+" nmap <D-6> g^
+" nmap <D-0> g^
+nmap < [
+nmap > ]
+omap < [
+omap > ]
+xmap < [
+xmap > ]
 
 "custom tab stuff
 " tab navigation like safari
