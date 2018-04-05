@@ -40,3 +40,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git@github.com:vim-syntastic/syntastic.git
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
