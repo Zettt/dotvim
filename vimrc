@@ -106,12 +106,12 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Move lines up/down
-nnoremap <C-Up> :m .-2<CR>==
-nnoremap <C-Down> :m .+1<CR>==
-inoremap <C-Up> <Esc>:m .-2<CR>==gi
-inoremap <C-Down> <Esc>:m .+1<CR>==gi
-vnoremap <C-Up> :m '<-2<CR>gv=gv
-vnoremap <C-Down> :m '>+1<CR>gv=gv
+" nnoremap <C-Up> :m .-2<CR>==
+" nnoremap <C-Down> :m .+1<CR>==
+" inoremap <C-Up> <Esc>:m .-2<CR>==gi
+" inoremap <C-Down> <Esc>:m .+1<CR>==gi
+" vnoremap <C-Up> :m '<-2<CR>gv=gv
+" vnoremap <C-Down> :m '>+1<CR>gv=gv
 
 " Better scrolling for soft wrapped text
 " vmap <D-j> gj
@@ -124,6 +124,8 @@ vnoremap <C-Down> :m '>+1<CR>gv=gv
 " nmap <D-4> g$
 " nmap <D-6> g^
 " nmap <D-0> g^
+
+" unimpaired
 nmap < [
 nmap > ]
 omap < [
